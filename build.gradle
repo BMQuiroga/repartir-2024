@@ -42,8 +42,8 @@ dependencies {
 	integrationTestImplementation 'org.flywaydb:flyway-core:7.11.3'
 	integrationTestImplementation 'io.rest-assured:rest-assured:4.4.0'
 	integrationTestImplementation 'net.javacrumbs.json-unit:json-unit:2.27.0'
-	integrationTestImplementation "org.testcontainers:junit-jupiter:1.15.2"
-	integrationTestRuntimeOnly 'org.testcontainers:mariadb:1.15.2'
+	integrationTestImplementation "org.testcontainers:junit-jupiter:1.21.4"
+	integrationTestRuntimeOnly 'org.testcontainers:mariadb:1.21.4'
 
 	uiTestImplementation 'org.seleniumhq.selenium:selenium-java:3.141.59'
 	uiTestImplementation 'io.github.bonigarcia:webdrivermanager:5.8.0'
@@ -56,13 +56,13 @@ dependencies {
 	acceptanceTestImplementation 'org.seleniumhq.selenium:selenium-java:3.141.59'
 	acceptanceTestImplementation 'io.github.bonigarcia:webdrivermanager:5.8.0'
 	acceptanceTestImplementation 'org.flywaydb:flyway-core:7.11.3'
-	acceptanceTestImplementation 'org.testcontainers:junit-jupiter:1.15.2'
+	acceptanceTestImplementation 'org.testcontainers:junit-jupiter:1.21.4'
 	acceptanceTestImplementation'org.apache.httpcomponents.client5:httpclient5:5.2.1'
-	acceptanceTestRuntimeOnly 'org.testcontainers:mariadb:1.15.2'
+	acceptanceTestRuntimeOnly 'org.testcontainers:mariadb:1.21.4'
 
 	manualTestImplementation 'org.flywaydb:flyway-core:7.11.3'
-	manualTestImplementation 'org.testcontainers:junit-jupiter:1.15.2'
-	manualTestRuntimeOnly 'org.testcontainers:mariadb:1.15.2'
+	manualTestImplementation 'org.testcontainers:junit-jupiter:1.21.4'
+	manualTestRuntimeOnly 'org.testcontainers:mariadb:1.21.4'
 }
 
 test {
