@@ -4,8 +4,10 @@ import org.junit.jupiter.api.Test;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.ElementClickInterceptedException;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import static org.assertj.core.api.Assertions.*;
+import static org.openqa.selenium.support.ui.ExpectedConditions.textToBePresentInElementLocated;
 
 public class Bienvenida extends UITest {
 
@@ -13,6 +15,9 @@ public class Bienvenida extends UITest {
     public void seMuestraAlInicio() {
 
         driver.navigate().to(url("/"));
+
+        var wait = new WebDriverWait(driver, 5);
+        wait.until(textToBePresentInElementLocated(By.tagName("p-dialog"), "Repartir"));
 
         var bienvenidaDialog = driver.findElement(By.tagName("p-dialog"));
 
