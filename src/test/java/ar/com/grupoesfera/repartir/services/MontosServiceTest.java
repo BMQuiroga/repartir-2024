@@ -6,6 +6,8 @@ import ar.com.grupoesfera.repartir.model.Gasto;
 import ar.com.grupoesfera.repartir.model.Grupo;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import ar.com.grupoesfera.repartir.exceptions.GrupoInvalidoException;
 
 import java.math.BigDecimal;
 
@@ -48,17 +50,17 @@ class MontosServiceTest {
         assertThat(grupo.getTotal()).isEqualTo($(324,41));
     }
 
-//    @Test
-//    void acumularGastoQueDejaElTotalNegativoLanzaExcepcion() {
-//
-//        Grupo grupo = new Grupo();
-//        grupo.setTotal($(100,0));
-//
-//        Gasto gasto = new Gasto();
-//        gasto.setMonto(BigDecimal.valueOf(-10001, 2));
-//
-//        assertThrows(GrupoInvalidoException.class, () -> {
-//            montos.acumularAlTotal(grupo, gasto);
-//        });
-//    }
+    @Test
+    void acumularGastoQueDejaElTotalNegativoLanzaExcepcion() {
+
+        Grupo grupo = new Grupo();
+        grupo.setTotal($(100,0));
+
+        Gasto gasto = new Gasto();
+        gasto.setMonto(BigDecimal.valueOf(-10001, 2));
+
+        assertThrows(GrupoInvalidoException.class, () -> {
+            montos.acumularAlTotal(grupo, gasto);
+        });
+    }
 }
