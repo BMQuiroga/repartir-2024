@@ -9,6 +9,7 @@ import org.springframework.jdbc.datasource.init.ResourceDatabasePopulator;
 import org.springframework.stereotype.Component;
 
 import javax.sql.DataSource;
+import java.math.BigDecimal;
 
 @Component
 @Profile("acceptanceTest")
@@ -41,6 +42,26 @@ public class BaseDeDatosFixture {
         estaVacia();
         var populator = new ResourceDatabasePopulator();
         populator.addScript(resourceLoader.getResource(DATA_PATH + "existeUnUnicoGrupo.sql"));
+        populator.execute(dataSource);
+    }
+
+    public void tieneElGrupoConTotal(int id, String nombre, BigDecimal total) {
+
+        estaVacia();
+        var insert =
+                """
+                    INSERT INTO grupo (id, nombre, total)
+                    VALUES (<ID>, '<NOMBRE>', <TOTAL>);
+
+                    INSERT INTO grupo_miembros (grupo_id, miembro)
+                    VALUES (<ID>, 'bob'), (<ID>, 'patricio')
+                """
+                .replaceAll("<ID>", String.valueOf(id))
+                .replaceAll("<NOMBRE>", nombre)
+                .replaceAll("<TOTAL>", total.toPlainString());
+
+        var populator = new ResourceDatabasePopulator();
+        populator.addScript(new ByteArrayResource(insert.getBytes()));
         populator.execute(dataSource);
     }
 
