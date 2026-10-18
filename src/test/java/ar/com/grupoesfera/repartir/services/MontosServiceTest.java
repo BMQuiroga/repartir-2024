@@ -63,4 +63,20 @@ class MontosServiceTest {
             montos.acumularAlTotal(grupo, gasto);
         });
     }
+
+    //    @Test
+    //    void acumularGastoRechazadoNoModificaElTotal() {
+    //
+    //        Grupo grupo = new Grupo();
+    //        grupo.setTotal($(100,0));
+    //
+    //        Gasto gasto = new Gasto();
+    //        gasto.setMonto(BigDecimal.valueOf(-10001, 2));
+    //
+    //        assertThrows(GrupoInvalidoException.class, () -> {
+    //            montos.acumularAlTotal(grupo, gasto);
+    //        });
+    //
+    //        assertThat(grupo.getTotal()).isEqualByComparingTo($(100,0));
+    //    }
 }
