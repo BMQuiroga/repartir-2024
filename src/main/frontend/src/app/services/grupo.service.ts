@@ -39,7 +39,14 @@ export class GrupoService {
     }
 
     return this.http.post<Grupo>(`/api/grupos/${grupo.id}/gastos`, nuevoGasto)
-      .pipe(catchError(this.falloAlGuardar));
+      .pipe(catchError(error => this.falloAlAgregarGasto(error)));
+  }
+
+  falloAlAgregarGasto(error: HttpErrorResponse) {
+    if (error.status === 400) {
+      return throwError(new Excepcion('El total del grupo no puede ser negativo'));
+    }
+    return this.falloAlGuardar(error);
   }
 
   falloAlGuardar(error: HttpErrorResponse) {
