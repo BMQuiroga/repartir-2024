@@ -47,4 +47,18 @@ class MontosServiceTest {
 
         assertThat(grupo.getTotal()).isEqualTo($(324,41));
     }
+
+//    @Test
+//    void acumularGastoQueDejaElTotalNegativoLanzaExcepcion() {
+//
+//        Grupo grupo = new Grupo();
+//        grupo.setTotal($(100,0));
+//
+//        Gasto gasto = new Gasto();
+//        gasto.setMonto(BigDecimal.valueOf(-10001, 2));
+//
+//        assertThrows(GrupoInvalidoException.class, () -> {
+//            montos.acumularAlTotal(grupo, gasto);
+//        });
+//    }
 }
