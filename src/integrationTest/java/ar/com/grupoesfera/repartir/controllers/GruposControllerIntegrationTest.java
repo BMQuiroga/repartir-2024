@@ -1,6 +1,8 @@
 package ar.com.grupoesfera.repartir.controllers;
 
 import ar.com.grupoesfera.repartir.itest.fixtures.GruposFixture;
+import ar.com.grupoesfera.repartir.exceptions.GrupoInvalidoException;
+import ar.com.grupoesfera.repartir.model.Gasto;
 import ar.com.grupoesfera.repartir.services.GruposService;
 import io.restassured.http.ContentType;
 import org.junit.jupiter.api.Test;
@@ -15,6 +17,8 @@ import static java.util.Collections.*;
 import static net.javacrumbs.jsonunit.JsonMatchers.*;
 import static org.hamcrest.Matchers.contains;
 import static org.hamcrest.Matchers.*;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.when;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
@@ -91,4 +95,19 @@ public class GruposControllerIntegrationTest {
                 .body("total", contains(1500.33f, 4000.0f));
     }
 
+    //@Test
+    //void agregarGastoQueDejaElTotalNegativoRespondeBadRequest() {
+    //    when(gruposService.agregarGasto(eq(21L), any(Gasto.class)))
+    //        .thenThrow(new GrupoInvalidoException());
+    //
+    //    given()
+    //        .accept(ContentType.JSON)
+    //        .port(randomServerPort)
+    //        .contentType(ContentType.JSON)
+    //        .body("{\"monto\": -100.01}")
+    //    .when()
+    //        .post("/api/grupos/21/gastos")
+    //    .then()
+    //        .statusCode(400);
+    //}
 }
