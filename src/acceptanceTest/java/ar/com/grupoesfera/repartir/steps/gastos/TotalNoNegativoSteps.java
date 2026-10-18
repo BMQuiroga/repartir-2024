@@ -37,7 +37,8 @@ public class TotalNoNegativoSteps extends CucumberSteps {
 
         var montoInput = driver.findElement(By.id("montoGastoNuevoInput"));
         montoInput.clear();
-        montoInput.sendKeys(soloNumero(monto));
+        montoInput.sendKeys(soloNumero(monto).replace(",", "."));
+
 
         driver.findElement(By.id("guardarGastoNuevoButton")).click();
     }

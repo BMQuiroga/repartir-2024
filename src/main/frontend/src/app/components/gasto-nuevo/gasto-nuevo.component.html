@@ -6,8 +6,7 @@
     </div>
     <div class="field">
       <label for="montoGastoNuevoInput">Monto</label>
-      <p-inputNumber inputId="montoGastoNuevoInput" inputStyleClass="inputfield w-full" [(ngModel)]="monto" mode="currency" currency="ARS">
-      </p-inputNumber>
+      <input id="montoGastoNuevoInput" type="number" step="0.01" class="inputfield w-full" pInputText [(ngModel)]="monto"/>
     </div>
   </div>
   <p-footer>
