@@ -98,6 +98,10 @@ public class GruposController {
 
             response = ResponseEntity.notFound().build();
 
+        } catch (GrupoInvalidoException e) {
+
+            response = ResponseEntity.badRequest().build();
+
         } catch (Exception e) {
 
             response = ResponseEntity.internalServerError().build();
