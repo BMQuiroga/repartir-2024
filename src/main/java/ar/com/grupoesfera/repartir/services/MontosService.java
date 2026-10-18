@@ -19,11 +19,12 @@ public class MontosService {
 
         BigDecimal total = grupo.getTotal();
         total = total.add(gasto.getMonto());
-        grupo.setTotal(total);
 
         if (total.signum() < 0) {
             throw new GrupoInvalidoException();
         }
+
+        grupo.setTotal(total);
     }
 
 }
